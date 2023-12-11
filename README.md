@@ -34,6 +34,7 @@ Verify that the user qualifies
 
 **Step 2**
 - iterate over the list of providers
+  - start with weights & providers (the weights for providers can be hardcoded / or consider weight 1 by default for every provider)  
 - validate the VC (or the secp256k1 for the tuple (did, provider, hash) )
   - check that this signature was created by the issuer (IAM)
 - sum up weights
