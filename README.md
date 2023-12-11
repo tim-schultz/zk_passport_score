@@ -38,3 +38,12 @@ Verify that the user qualifies
   - check that this signature was created by the issuer (IAM)
 - sum up weights
 - allow each provider only once
+
+
+# TODO
+- [ ] create first iteration of circuit (basic, not all verification needed in circuit)
+- [ ] create UI for proof generation
+- [ ] create UI for proof verification generation
+- [ ] implement end-to-end flow
+- [ ] implement validations in circuit
+- [ ] implement nullfier / deduplication
