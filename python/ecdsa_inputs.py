@@ -42,7 +42,7 @@ class SECP256k1:
         data = self.load()
         private_key = data["private_key"]
 
-        user_msg = message + " " + data["public_evm_address"]
+        user_msg = message
         # hash the message and sign the hash
         message_hash = hashlib.sha256(user_msg.encode('utf-8')).hexdigest()
         message_bytes = bytes.fromhex(message_hash)
@@ -58,8 +58,8 @@ class SECP256k1:
         }
     def sign_and_print(self, message):
         data = self.sign(message)
-        print("Message: ", list(data["message"]))
-        print("Signature: ", list(bytes.fromhex(data["signature"].hex())))
+        print("let message_hash =", list(data["message"]), ";")
+        print("let signature = ", list(bytes.fromhex(data["signature"].hex())), ";")
         keys = self.load()
         print("X coordinate: ", keys["public_key_x"])
         print("Y coordinate: ", keys["public_key_y"])
@@ -86,4 +86,6 @@ secp = SECP256k1()
 # create new keypair and save at DEFAULT_TARGET
 # secp.store(secp.new())
 # sign an oversimplified transaction
-secp.sign_and_print("I own this address: ")
+# There is a length issue if the full address is provided below. Unable to verify signature
+test_short_user_address = "0x123456789"
+secp.sign_and_print(f"did:pkh:eip1551:{test_short_user_address}")
