@@ -21,7 +21,7 @@ fn verify_signature(message_hash : [u8;32], pub_key_x : [u8;32], pub_key_y : [u8
     // the reason we do this is to ensure persistent input message length (always 32 bytes)
     let message_hash_2 = std::hash::sha256(message_hash);
 
-    let valid_signature = std::ecdsa_secp256k1::verify_signature(pub_key_x, pub_key_y, signature, message_hash);
+    let valid_signature = std::ecdsa_secp256k1::verify_signature(pub_key_x, pub_key_y, signature, message_hash_2);
     assert(valid_signature);
 }
 
