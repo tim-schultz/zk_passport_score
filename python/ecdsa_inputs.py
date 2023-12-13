@@ -59,6 +59,7 @@ class SECP256k1:
     def sign_and_print(self, message):
         data = self.sign(message)
         print("let message_hash =", list(data["message"]), ";")
+        print(data["signature"].hex())
         print("let signature = ", list(bytes.fromhex(data["signature"].hex())), ";")
         keys = self.load()
         print("X coordinate: ", keys["public_key_x"])
